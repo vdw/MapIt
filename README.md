@@ -2,6 +2,12 @@
 
 An easy way to embed google maps in your site
 
+## Features
+
+* Customizable google maps (dimensions, zoom level, terrain type, etc)
+* Multiple markers with text and custom icons.
+* Routes
+
 ## Copyright and license
 
 Copyright 2013 Dimitris Krestos
