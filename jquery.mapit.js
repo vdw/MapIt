@@ -34,11 +34,12 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 			zoom: 			14,
 			type: 			'ROADMAP',
 			marker: {
-				latitude: 	37.9792,
+				latitude: 	37.8792,
 				longitude: 	23.751344,
 				icon: 			'images/marker.png',
 				title: 			'Marker title',
-				open: 			false
+				open: 			false,
+				center: 		false
 			},
 			address: '<h2>The Title</h2><p>Address 1, Area - County<br />Athens 111 11, Greece</p><p>Tel.: +30 210 123 4567<br />Fax: +30 210 123 4567</p>',
 			styles: 'GRAYSCALE',
@@ -95,8 +96,7 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 				// Home Marker
 				var home = new google.maps.Marker({
 					map: map,
-					//position: map.getCenter()
-					position: new google.maps.LatLng(options.marker.latitude, options.marker.longitude),
+					position: options.marker.center ? map.getCenter() : new google.maps.LatLng(options.marker.latitude, options.marker.longitude),
 					icon: new google.maps.MarkerImage(options.marker.icon),
 					title: options.marker.title
 				});
