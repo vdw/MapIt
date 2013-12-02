@@ -1,5 +1,5 @@
 /**
- * bQuery
+ * MapIt
  *
  * @copyright	Copyright 2013, Dimitris Krestos
  * @license		Apache License, Version 2.0 (http://www.opensource.org/licenses/apache2.0.php)
@@ -7,11 +7,19 @@
  * @version		v0.0.1
  */
 
+/* Available options
+ *
+ * Map type: 	ROADMAP, SATELLITE, HYBRID, TERRAIN
+ * Map styles: false, GRAYSCALE
+ *
+ */
+
 	/* Sample html structure
 
 	<div id='map_canvas'></div>
 
 	*/
+
 
 document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&language=el" ></scr'+'ipt>');
 
@@ -33,6 +41,7 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 				open: 			false
 			},
 			address: '<h2>The Title</h2><p>Address 1, Area - County<br />Athens 111 11, Greece</p><p>Tel.: +30 210 123 4567<br />Fax: +30 210 123 4567</p>',
+			styles: 'GRAYSCALE',
 			locations: []
 		};
 
@@ -48,35 +57,10 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 					['MEC SA', 'Μεσογειακό Εκθεσιακό Κέντρο', 'CC', 37.975327, 23.853106, 5, 'yellow'],
 					['E.Κ.Ε.Π', '', 'CC', 38.065798, 23.760481, 3, 'yellow'],
 					['Εκθεσιακό Κέντρο Helexpo ', '', 'CC', 38.058905, 23.797531, 2, 'yellow'],
-
-					['Avenue Mall', '', 'MA', 38.034901, 23.796095, 1, 'pink'],
-					['Εμπορικό Κέντρο Αίγλη', '', 'MA', 38.072935, 23.815096, 1, 'pink'],
-					['Golden Hall', '', 'MA', 38.034048, 23.792868, 1, 'pink'],
-					['Shopping Land', '', 'MA', 38.073214, 23.814098, 1, 'pink'],
-					['The Mall Athens', '', 'MA', 38.046266, 23.790536, 1, 'pink'],
-
-					['Ολυμπιακό Κέντρο Αθηνών Σπύρος Λούης (ΟΑΚΑ)', '', 'SC', 38.044902, 23.78062, 1, 'blue'],
-					['Politia Tennis Club', '', 'SC', 38.086735, 23.832412, 1, 'blue'],
-					['Gipedakia.gr', '', 'SC', 38.083399, 23.791364, 1, 'blue'],
-
-					['ΙΑΣΩ', '', 'HO', 38.034318, 23.795741, 1, 'green'],
-					['emBIO', '', 'HO', 38.013341, 23.785372, 1, 'green'],
-					['KAT', '', 'HO', 38.066947, 23.809925, 1, 'green'],
-					['Αthens Medical Centre', '', 'HO', 38.042996, 23.805365, 1, 'green'],
-					['Διαγνωστικό Κέντρο Υγεία', '', 'HO', 38.027498, 23.789887, 1, 'green'],
-					['Γενικό Ογκολογικό Νοσοκομείο Κηφισιάς', '', 'HO', 38.086042, 23.7891, 1, 'green'],
-					['Γενικό Νοσοκομείο Παίδων Πεντέλης', '', 'HO', 38.050338, 23.871712, 1, 'green'],
-					['1ο Νοσοκομείο ΙΚΑ Αθηνών', '', 'HO', 38.056075, 23.84268, 1, 'green'],
-					['Μητέρα', '', 'HO', 38.030921, 23.789839, 1, 'green'],
-
-					['MIHALARIAS ART', '', 'CA', 38.034707, 23.794473, 1, 'orange'],
-					['Μουσείο Γουλανδρή Φυσικής Ιστορίας', '', 'CA', 38.074852, 23.814877, 1, 'orange'],
-					['Μουσείο Τηλεπικοινωνιών ΟΤΕ', '', 'CA', 38.089057, 23.809301, 1, 'orange'],
-					['Μουσείο Δροσίνη', '', 'CA', 38.07087, 23.811819, 1, 'orange']
 				];
 
 				// Origins
-				var athens = ['37.983715', '23.72931'];
+				var athens  = ['37.983715', '23.72931'];
 				var piraeus = ['37.947091', '23.64261'];
 				var airport = ['37.943072', '23.950306'];
 
@@ -91,6 +75,22 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 				};
 				var map = new google.maps.Map(document.getElementById($this.attr('id')), mapOptions);
 				directionsDisplay.setMap(map);
+
+				// Styles
+				if (options.styles) {
+					var GRAYSCALE_style = [
+						{
+							featureType: "all",
+							elementType: "all",
+							stylers: [
+								{ saturation: -100 }
+							]
+						}
+					];
+					var mapType = new google.maps.StyledMapType(eval(options.styles + '_style'), { name: options.styles });
+					map.mapTypes.set(options.styles, mapType);
+					map.setMapTypeId(options.styles);
+				}
 
 				// Home Marker
 				var home = new google.maps.Marker({
