@@ -39,11 +39,16 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 				icon: 			'images/marker.png',
 				title: 			'Marker title',
 				open: 			false,
-				center: 		false
+				center: 		true
 			},
 			address: '<h2>The Title</h2><p>Address 1, Area - County<br />Athens 111 11, Greece</p><p>Tel.: +30 210 123 4567<br />Fax: +30 210 123 4567</p>',
 			styles: 'GRAYSCALE',
-			locations: []
+			locations: [
+				[37.955297, 23.956861, 'images/marker.png', 'Marker 1 title', false, '1'],
+				[37.975327, 23.853106, 'images/marker.png', 'Marker 2 title', false, '2'],
+				[38.065798, 23.760481, 'images/marker.png', 'Marker 3 title', false, '1'],
+				[38.058905, 23.797531, 'images/marker.png', 'Marker 4 title', false, '2']
+			]
 		};
 
 		var options = $.extend(defaults, options);
@@ -51,14 +56,6 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 		$(this).each(function() {
 
 			var $this = $(this);
-
-				// Locations
-				var locations = [
-					['Metropolitan Expo','', 'CC', 37.955297, 23.956861, 4, 'yellow'],
-					['MEC SA', 'Μεσογειακό Εκθεσιακό Κέντρο', 'CC', 37.975327, 23.853106, 5, 'yellow'],
-					['E.Κ.Ε.Π', '', 'CC', 38.065798, 23.760481, 3, 'yellow'],
-					['Εκθεσιακό Κέντρο Helexpo ', '', 'CC', 38.058905, 23.797531, 2, 'yellow'],
-				];
 
 				// Origins
 				var athens  = ['37.983715', '23.72931'];
@@ -70,9 +67,9 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 
 				var mapOptions = {
 					scaleControl: false,
-					center: new google.maps.LatLng(options.latitude, options.longitude),
-					zoom: options.zoom,
-					mapTypeId: eval('google.maps.MapTypeId.' + options.type)
+					center: 			new google.maps.LatLng(options.latitude, options.longitude),
+					zoom: 				options.zoom,
+					mapTypeId: 		eval('google.maps.MapTypeId.' + options.type)
 				};
 				var map = new google.maps.Map(document.getElementById($this.attr('id')), mapOptions);
 				directionsDisplay.setMap(map);
@@ -95,10 +92,10 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 
 				// Home Marker
 				var home = new google.maps.Marker({
-					map: map,
+					map: 			map,
 					position: options.marker.center ? map.getCenter() : new google.maps.LatLng(options.marker.latitude, options.marker.longitude),
-					icon: new google.maps.MarkerImage(options.marker.icon),
-					title: options.marker.title
+					icon: 		new google.maps.MarkerImage(options.marker.icon),
+					title: 		options.marker.title
 				});
 
 				// Add info on the home marker
@@ -115,18 +112,19 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 					});
 				};
 
-				// Create Markers
+				// Create Markers (locations)
 				var infowindow = new google.maps.InfoWindow();
 				var marker, i;
 				var markers = [];
 
-				for (i = 0; i < locations.length; i++) {
+				for (i = 0; i < options.locations.length; i++) {
 
 					// Add Markers
 					marker = new google.maps.Marker({
-						position: new google.maps.LatLng(locations[i][3], locations[i][4]),
-						map: map,
-						icon: new google.maps.MarkerImage('images/'+locations[i][6]+'_marker.png')
+						position: new google.maps.LatLng(options.locations[i][0], options.locations[i][1]),
+						map: 			map,
+						icon: 		new google.maps.MarkerImage(options.locations[i][2] || options.marker.icon),
+						title: 		options.locations[i][3]
 					});
 
 					// Create an array of the markers
@@ -135,7 +133,7 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 					// Init info for each marker
 					google.maps.event.addListener(marker, 'click', (function(marker, i) {
 						return function() {
-							infowindow.setContent(locations[i][0]+"<br />"+locations[i][1]);
+							infowindow.setContent(options.locations[i][3]);
 							infowindow.open(map, marker);
 						}
 					})(marker, i));
@@ -147,9 +145,9 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 
 				function route(origins) {
 					var request = {
-						origin: new google.maps.LatLng(eval(origins)[0], eval(origins)[1]),
-						destination: new google.maps.LatLng(38.074185, 23.818928),
-						travelMode: google.maps.TravelMode.DRIVING
+						origin: 			new google.maps.LatLng(eval(origins)[0], eval(origins)[1]),
+						destination: 	new google.maps.LatLng(38.074185, 23.818928),
+						travelMode: 	google.maps.TravelMode.DRIVING
 					};
 					directionsService.route(request, function(result, status) {
 						if (status == google.maps.DirectionsStatus.OK) {
@@ -199,7 +197,7 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 				}
 
 				// Hide all locations once
-				hide_all();
+				// hide_all();
 
 		});
 
