@@ -44,10 +44,15 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 			address: '<h2>The Title</h2><p>Address 1, Area - County<br />Athens 111 11, Greece</p><p>Tel.: +30 210 123 4567<br />Fax: +30 210 123 4567</p>',
 			styles: 'GRAYSCALE',
 			locations: [
-				[37.955297, 23.956861, 'images/marker.png', 'Marker 1 title', false, '1'],
-				[37.975327, 23.853106, 'images/marker.png', 'Marker 2 title', false, '2'],
-				[38.065798, 23.760481, 'images/marker.png', 'Marker 3 title', false, '1'],
-				[38.058905, 23.797531, 'images/marker.png', 'Marker 4 title', false, '2']
+				[37.955297, 23.956861, 'images/marker.png', 'Title', 'Marker 1 title', false, '1'],
+				[37.975327, 23.853106, 'images/marker.png', 'Title', 'Marker 2 title', false, '2'],
+				[38.065798, 23.760481, 'images/marker.png', 'Title', 'Marker 3 title', false, '1'],
+				[38.058905, 23.797531, 'images/marker.png', 'Title', 'Marker 4 title', false, '2']
+			],
+			origins: [
+				['37.983715', '23.72931'],
+				['37.947091', '23.64261'],
+				['37.943072', '23.950306']
 			]
 		};
 
@@ -56,11 +61,6 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 		$(this).each(function() {
 
 			var $this = $(this);
-
-				// Origins
-				var athens  = ['37.983715', '23.72931'];
-				var piraeus = ['37.947091', '23.64261'];
-				var airport = ['37.943072', '23.950306'];
 
 				// Init Map
 				var directionsDisplay = new google.maps.DirectionsRenderer();
@@ -133,7 +133,7 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 					// Init info for each marker
 					google.maps.event.addListener(marker, 'click', (function(marker, i) {
 						return function() {
-							infowindow.setContent(options.locations[i][3]);
+							infowindow.setContent(options.locations[i][4]);
 							infowindow.open(map, marker);
 						}
 					})(marker, i));
