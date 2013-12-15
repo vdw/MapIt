@@ -44,10 +44,10 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 			address: '<h2>The Title</h2><p>Address 1, Area - County<br />Athens 111 11, Greece</p><p>Tel.: +30 210 123 4567<br />Fax: +30 210 123 4567</p>',
 			styles: 'GRAYSCALE',
 			locations: [
-				[37.955297, 23.956861, 'images/marker.png', 'Title', 'Marker 1 title', false, '1'],
-				[37.975327, 23.853106, 'images/marker.png', 'Title', 'Marker 2 title', false, '2'],
-				[38.065798, 23.760481, 'images/marker.png', 'Title', 'Marker 3 title', false, '1'],
-				[38.058905, 23.797531, 'images/marker.png', 'Title', 'Marker 4 title', false, '2']
+				[37.955297, 23.956861, 'images/marker.png', 'Marker title', 'Marker 1 address', false, '1'],
+				[37.975327, 23.853106, 'images/marker.png', 'Marker title', 'Marker 2 address', false, '2'],
+				[38.065798, 23.760481, 'images/marker.png', 'Marker title', 'Marker 3 address', false, '1'],
+				[38.058905, 23.797531, 'images/marker.png', 'Marker title', 'Marker 4 address', false, '2']
 			],
 			origins: [
 				['37.983715', '23.72931'],
@@ -151,44 +151,44 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 				}
 
 				// Hide Markers Once (helper)
-				function hide_all() {
-					for (var i=0; i<locations.length; i++) {
+				$this.on ('hide_all', function() {
+					for (var i=0; i<options.locations.length; i++) {
 						markers[i].setVisible(false);
-					}
-				}
+					};
+				});
 
 				// Show Markers Per Category (helper)
-				function show(category) {
-					hide_all();
-					reset();
-					for (var i=0; i<locations.length; i++) {
-						if (locations[i][2] == category) {
+				$this.on ('show', function(event, category) {
+					$this.trigger('hide_all');
+					$this.trigger('reset');
+					for (var i=0; i<options.locations.length; i++) {
+						if (options.locations[i][6] == category) {
 							markers[i].setVisible(true);
-						}
-					}
-				}
+						};
+					};
+				});
 
 				// Hide Markers Per Category (helper)
-				function hide(category) {
-					for (var i=0; i<locations.length; i++) {
-						if (locations[i][2] == category) {
+				$this.on ('hide', function(event, category) {
+					for (var i=0; i<options.locations.length; i++) {
+						if (options.locations[i][6] == category) {
 							markers[i].setVisible(false);
-						}
-					}
-				}
+						};
+					};
+				});
 
 				// Clear Markers (helper)
-				function clear() {
+				$this.on ('clear', function() {
 					if (markers) {
 						for (var i = 0; i < markers.length; i++ ) {
 							markers[i].setMap(null);
-						}
-					}
-				}
+						};
+					};
+				});
 
-				function reset() {
-					map.setCenter(new google.maps.LatLng(38.076220, 23.825552), 14);
-				}
+				$this.on ('reset', function() {
+					map.setCenter(new google.maps.LatLng(options.latitude, options.longitude), options.zoom);
+				});
 
 				// Hide all locations once
 				// hide_all();
