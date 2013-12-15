@@ -137,18 +137,18 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 				// Directions
 				var directionsService = new google.maps.DirectionsService();
 
-				function route(origins) {
+				$this.on ('route', function(event, origin) {
 					var request = {
-						origin: 			new google.maps.LatLng(eval(origins)[0], eval(origins)[1]),
+						origin: 			new google.maps.LatLng(options.origins[origin][0], options.origins[origin][1]),
 						destination: 	new google.maps.LatLng(38.074185, 23.818928),
 						travelMode: 	google.maps.TravelMode.DRIVING
 					};
 					directionsService.route(request, function(result, status) {
 						if (status == google.maps.DirectionsStatus.OK) {
 							directionsDisplay.setDirections(result);
-						}
+						};
 					});
-				}
+				});
 
 				// Hide Markers Once (helper)
 				$this.on ('hide_all', function() {
