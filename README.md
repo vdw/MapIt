@@ -6,6 +6,7 @@ An easy way to embed google maps in your site
 
 * Customizable google maps (dimensions, zoom level, terrain type, etc)
 * Multiple markers with text and custom icons.
+* Events to handle markers (show, show_all, hide, hide_all)
 * Routes
 
 ## Copyright and license
