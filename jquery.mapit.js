@@ -67,7 +67,7 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 
 				var mapOptions = {
 					scaleControl: false,
-					center: 			new google.maps.LatLng(options.latitude, options.longitude),
+					center: 			options.marker.center ? new google.maps.LatLng(options.marker.latitude, options.marker.longitude) : new google.maps.LatLng(options.latitude, options.longitude),
 					zoom: 				options.zoom,
 					mapTypeId: 		eval('google.maps.MapTypeId.' + options.type)
 				};
@@ -87,7 +87,7 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 				// Home Marker
 				var home = new google.maps.Marker({
 					map: 			map,
-					position: options.marker.center ? map.getCenter() : new google.maps.LatLng(options.marker.latitude, options.marker.longitude),
+					position: new google.maps.LatLng(options.marker.latitude, options.marker.longitude),
 					icon: 		new google.maps.MarkerImage(options.marker.icon),
 					title: 		options.marker.title
 				});
@@ -140,7 +140,7 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 				$this.on ('route', function(event, origin) {
 					var request = {
 						origin: 			new google.maps.LatLng(options.origins[origin][0], options.origins[origin][1]),
-						destination: 	new google.maps.LatLng(38.074185, 23.818928),
+						destination: 	new google.maps.LatLng(options.marker.latitude, options.marker.longitude),
 						travelMode: 	google.maps.TravelMode.DRIVING
 					};
 					directionsService.route(request, function(result, status) {
@@ -191,7 +191,7 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 				});
 
 				// Hide all locations once
-				// hide_all();
+				$this.trigger('hide_all');
 
 		});
 
