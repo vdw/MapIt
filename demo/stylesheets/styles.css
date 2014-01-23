@@ -17,11 +17,13 @@
  */
 BODY {
 	font-size: 13px; /* Override typography */
+	/*font-family: 'Yanone Kaffeesatz', sans-serif;*/
+	font-family: 'Nunito', sans-serif;
 }
 
 #wrapper {
 	margin: 0 auto;
-	max-width: 960px;
+	max-width: 100%;
 }
 
 /**
@@ -29,17 +31,72 @@ BODY {
  * Your header rules
  * -------------------------------------------------------------------------------------------------
  */
-HEADER {}
+#header_wrapper {
+	background: white;
+	width: 100%;
+}
+
+HEADER {
+	color: #333;
+	height: 206px;
+	margin: 0 auto;
+	max-width: 940px;
+}
+
+HEADER H1 {
+	color: inherit;
+	font-size: 66px;
+	font-weight: 700;
+	letter-spacing: 4px;
+	line-height: 78px;
+	margin-left: -5px;
+	padding-top: 40px;
+	text-transform: uppercase;
+}
+
+HEADER H2 {
+	color: inherit;
+	/*font-family: 'Yanone Kaffeesatz', sans-serif;*/
+	font-weight: 300;
+	font-size: 18px;
+	letter-spacing: 6px;
+	margin-bottom: 4px;
+	text-transform: uppercase;
+}
 
 /**
  * NAVIGATION
  * Your horizontal (global) navigation rules
  * -------------------------------------------------------------------------------------------------
  */
-NAV {}
+#nav_wrapper {
+	background: #eee;
+	width: 100%;
+}
+
+NAV {
+	height: 64px;
+}
 
 NAV UL { /* Level 0 */
-	float: left;
+	display: block !important;
+	text-align: right;
+	margin: 0 auto !important;
+	width: 960px;
+}
+
+NAV UL LI A {
+	line-height: 64px;
+	vertical-align: middle;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 0 5px;
+	text-transform: uppercase;
+}
+
+NAV UL LI A:hover {
+	color: #e1704b;
+	text-decoration: none;
 }
 
 /**
@@ -64,8 +121,8 @@ SECTION#body {
 ARTICLE {}
 
 #map_canvas {
-	height: 450px;
-	width: 960px;
+	height: 800px;
+	width: 100%;
 }
 
 /**
