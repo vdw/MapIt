@@ -5,6 +5,8 @@
 	<title>MapIt | An easy way to embed google maps in your site.</title>
 	<meta name="description" content="An easy way to embed google maps in your site">
 
+	<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+
 	<!-- STYLES -->
 	<link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
 	<link rel="stylesheet" type="text/css" href="stylesheets/typography.css">
@@ -29,6 +31,31 @@
 <!--[if IE 9]>     <body class="ie ie9 lte9">           <![endif]-->
 <!--[if gt IE 9]>  <body class="ie">                    <![endif]-->
 <!--[if !IE]><!--> <body>                               <!--<![endif]-->
+
+	<!-- HEADER -->
+	<div id="header_wrapper">
+		<header>
+			<h1>MapIt</h1>
+			<h2>A jQuery plugin for embedding Google maps in your site</h2>
+			<a class="button" href="https://github.com/vdw/MapIt/archive/master.zip">download</a>
+			<a class="link" href="https://github.com/vdw/MapIt">or view on GitHub</a>
+		</header>
+	</div>
+	<!-- HEADER ends -->
+
+	<div id="nav_wrapper">
+		<nav>
+			<ul class="horizontal">
+				<li><a href="javascript:$('#map_canvas').trigger('show', '1')">Show Markers 1</a></li>
+				<li><a href="javascript:$('#map_canvas').trigger('show', '2')">Show Markers 2</a></li>
+				<li><a href="javascript:$('#map_canvas').trigger('route', '1')">Show Routes 1</a></li>
+				<li><a href="javascript:$('#map_canvas').trigger('route', '2')">Show Routes 2</a></li>
+				<li><a href="javascript:$('#map_canvas').trigger('hide_all')">Hide all markers</a></li>
+				<li><a href="javascript:$('#map_canvas').trigger('reset')">Reset Map</a></li>
+			</ul>
+		</nav>
+	</div>
+
 
 	<div id="wrapper">
 		<div id="map_canvas"></div>
