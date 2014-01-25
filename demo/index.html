@@ -42,24 +42,37 @@
 		</header>
 	</div>
 	<!-- HEADER ends -->
-
-	<div id="nav_wrapper">
-		<nav>
-			<ul class="horizontal">
-				<li><a href="javascript:$('#map_canvas').trigger('show', '1')">Show Markers 1</a></li>
-				<li><a href="javascript:$('#map_canvas').trigger('show', '2')">Show Markers 2</a></li>
-				<li><a href="javascript:$('#map_canvas').trigger('route', '1')">Show Routes 1</a></li>
-				<li><a href="javascript:$('#map_canvas').trigger('route', '2')">Show Routes 2</a></li>
-				<li><a href="javascript:$('#map_canvas').trigger('hide_all')">Hide all markers</a></li>
-				<li><a href="javascript:$('#map_canvas').trigger('reset')">Reset Map</a></li>
-			</ul>
-		</nav>
-	</div>
-
+	<h3 id="custom_event">Example</h3>
 
 	<div id="wrapper">
+		<div id="nav_wrapper">
+			<nav>
+				<ul class="vertical">
+
+					<li><strong>Points of interest</strong></li>
+					<li><a href="javascript:$('#map_canvas').trigger('show', '1')">Cinemas</a></li>
+					<li><a href="javascript:$('#map_canvas').trigger('show', '2')">Museums</a></li>
+					<li><strong>Routes</strong></li>
+					<li><a href="javascript:$('#map_canvas').trigger('route', '0')">Airport to The Hotel</a></li>
+					<li><a href="javascript:$('#map_canvas').trigger('route', '1')">The Hotel to Center</a></li>
+					<li><strong>Controls</strong></li>
+					<li><a href="javascript:$('#map_canvas').trigger('hide_all')">Hide all markers</a></li>
+					<li><a href="javascript:$('#map_canvas').trigger('reset')">Reset Map</a></li>
+				</ul>
+			</nav>
+		</div>
+
 		<div id="map_canvas"></div>
 	</div>
+
+	<!-- FOOTER -->
+	<footer>
+		<!-- FOOTER CONTAINER-->
+		<div class="footer_wrapper">
+			<p>Built by <a href="https://github.com/vdw">vdw</a> aka <a href="http://gr.linkedin.com/in/dkrestos/" target="_blank">Dimitris Krestos</a><br />Code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a></p>
+		</div>
+		<!-- FOOTER CONTAINER ends -->
+	</footer>
 
 	<!-- JQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
