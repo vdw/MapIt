@@ -31,7 +31,7 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 		var defaults = {
 			latitude: 	 37.970996,
 			longitude: 	 23.730542,
-			zoom: 			 14,
+			zoom: 			 16,
 			type: 			 'ROADMAP',
 			scrollwheel: false,
 			marker: {
@@ -47,7 +47,7 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 			locations: [
 				[37.999252, 23.733353, 'images/marker_blue.png', 'Cinema Aello 5+1', 'Panagi Tsaldari 140, Athina, Greece', false, '1'],
 				[37.996547, 23.732001, 'images/marker_blue.png', 'Cinema Ilion', 'Τροίας 34, Αθήνα, Greece', false, '1'],
-				[37.959408, 23.713982, 'images/marker_green.png', 'Cinema Calipso', 'Megalou Alexandrou ke Kalipsous, Kallithea, Greece', false, '1'],
+				[37.959408, 23.713982, 'images/marker_blue.png', 'Cinema Calipso', 'Megalou Alexandrou ke Kalipsous, Kallithea, Greece', false, '1'],
 				[37.977563, 23.714041, 'images/marker_green.png', 'Technopolis', 'Πειραιώς 100, Αθήνα, Greece', false, '2'],
 				[37.971436, 23.736695, 'images/marker_green.png', 'Zappeion', 'Greece', false, '2'],
 				[37.975030, 23.747751, 'images/marker_green.png', 'Εθνική Πινακοθήκη Μουσείο Αλεξάνδρου Σούτζου', 'Μιχαλακοπούλου 1, Αθήνα, Greece', false, '2'],
@@ -136,7 +136,7 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 						}
 					})(marker, i));
 
-				}
+				};
 
 				// Directions
 				var directionsService = new google.maps.DirectionsService();
@@ -165,11 +165,20 @@ document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.c
 				$this.on ('show', function(event, category) {
 					$this.trigger('hide_all');
 					$this.trigger('reset');
+
+					// Set bounds
+					var bounds = new google.maps.LatLngBounds();
 					for (var i=0; i<options.locations.length; i++) {
 						if (options.locations[i][6] == category) {
 							markers[i].setVisible(true);
 						};
+
+						// Add markers to bounds
+						bounds.extend(markers[i].position);
 					};
+
+					// Auto focus and center
+					map.fitBounds(bounds);
 				});
 
 				// Hide Markers Per Category (helper)
