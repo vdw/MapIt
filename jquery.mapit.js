@@ -4,7 +4,7 @@
  * @copyright	Copyright 2013, Dimitris Krestos
  * @license		Apache License, Version 2.0 (http://www.opensource.org/licenses/apache2.0.php)
  * @link			http://vdw.staytuned.gr
- * @version		v0.2.1
+ * @version		v0.2.2
  */
 
 /* Available options
@@ -21,7 +21,7 @@
 	*/
 
 
-document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&language=el" ></scr'+'ipt>');
+document.write('<scr'+'ipt type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false" ></scr'+'ipt>');
 
 ;(function($, window, undefined) {
 	"use strict";
