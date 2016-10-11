@@ -1,0 +1,4 @@
+demo/* linguist-vendored
+test/* linguist-vendored
+jquery.mapit.min.js linguist-vendored=false
+jquery.mapit.test.js linguist-vendored=false
