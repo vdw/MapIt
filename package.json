@@ -1,5 +1,5 @@
 {
-  "name": "mapit",
+  "name": "jquery-mapit",
   "version": "0.3.0",
   "description": "An easy way to embed google maps in your site.",
   "main": "jquery.mapit.js",
