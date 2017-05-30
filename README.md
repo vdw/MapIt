@@ -1,6 +1,11 @@
 # MapIt
 
+[![npm version](https://badge.fury.io/js/jquery-mapit.png)](http://badge.fury.io/js/jquery-mapit)
+
 An easy way to embed google maps in your site
+
+* [Demonstration page][1]
+* [Documentation (wiki)][3]
 
 ## Features
 
