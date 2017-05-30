@@ -1,0 +1,26 @@
+{
+  "name": "mapit",
+  "version": "0.3.0",
+  "description": "An easy way to embed google maps in your site.",
+  "main": "jquery.mapit.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vdw/MapIt.git"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "customizable",
+    "map",
+    "jquery",
+    "mapit"
+  ],
+  "author": "Dimitris Krestos <dkrestos@gmail.com>",
+  "license": {
+    "type" : "Apache-2.0",
+    "url" : "http://www.apache.org/licenses/LICENSE-2.0"
+  },
+  "bugs": {
+    "url": "https://github.com/vdw/MapIt/issues"
+  },
+  "homepage": "https://github.com/vdw/MapIt"
+}
