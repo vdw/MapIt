@@ -1,29 +1,29 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>MapIt | An easy way to embed google maps in your site.</title>
-	<meta name="description" content="An easy way to embed google maps in your site">
+  <meta charset="utf-8">
+  <title>MapIt | An easy way to embed google maps in your site.</title>
+  <meta name="description" content="An easy way to embed google maps in your site">
 
-	<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
 
-	<!-- STYLES -->
-	<link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
-	<link rel="stylesheet" type="text/css" href="stylesheets/typography.css">
-	<link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
-	<link rel="stylesheet" type="text/css" href="stylesheets/github.css">
+  <!-- STYLES -->
+  <link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/typography.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/github.css">
 
-	<script type="text/javascript">
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-4512362-21']);
-	  _gaq.push(['_trackPageview']);
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4512362-21']);
+    _gaq.push(['_trackPageview']);
 
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-	</script>
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
 </head>
 <!--[if lt IE 7]>  <body class="ie ie6 lte9 lte8 lte7"> <![endif]-->
 <!--[if IE 7]>     <body class="ie ie7 lte9 lte8 lte7"> <![endif]-->
@@ -32,56 +32,57 @@
 <!--[if gt IE 9]>  <body class="ie">                    <![endif]-->
 <!--[if !IE]><!--> <body>                               <!--<![endif]-->
 
-	<!-- HEADER -->
-	<div id="header_wrapper">
-		<header>
-			<h1>MapIt</h1>
-			<h2>A jQuery plugin for embedding Google maps in your site</h2>
-			<a class="button" href="https://github.com/vdw/MapIt/archive/master.zip">download</a>
-			<a class="link" href="https://github.com/vdw/MapIt">or view on GitHub</a>
-		</header>
-	</div>
-	<!-- HEADER ends -->
-	<h3 id="custom_event">Example</h3>
+  <!-- HEADER -->
+  <div id="header_wrapper">
+    <header>
+      <h1>MapIt</h1>
+      <h2>A jQuery plugin for embedding Google maps in your site</h2>
+      <a class="button" href="https://github.com/vdw/MapIt/archive/master.zip">download</a>
+      <a class="link" href="https://github.com/vdw/MapIt">or view on GitHub</a>
+    </header>
+  </div>
+  <!-- HEADER ends -->
+  <h3 id="custom_event">Example</h3>
 
-	<div id="wrapper">
-		<div id="nav_wrapper">
-			<nav>
-				<ul class="vertical">
+  <div id="wrapper">
+    <div id="nav_wrapper">
+      <nav>
+        <ul class="vertical">
 
-					<li><strong>Points of interest</strong></li>
-					<li><a onclick="javascript:$('#map_canvas').trigger('show', '1')">Cinemas</a></li>
-					<li><a onclick="javascript:$('#map_canvas').trigger('show', '2')">Museums</a></li>
-					<li><strong>Routes</strong></li>
-					<li><a onclick="javascript:$('#map_canvas').trigger('route', '0')">Airport to The Hotel</a></li>
-					<li><a onclick="javascript:$('#map_canvas').trigger('route', '1')">The Hotel to Center</a></li>
-					<li><strong>Controls</strong></li>
-					<li><a onclick="javascript:$('#map_canvas').trigger('hide_all')">Hide all markers</a></li>
-					<li><a onclick="javascript:$('#map_canvas').trigger('reset')">Reset Map</a></li>
-				</ul>
-			</nav>
-		</div>
+          <li><strong>Points of interest</strong></li>
+          <li><a onclick="javascript:$('#map_canvas').trigger('show', '1')">Cinemas</a></li>
+          <li><a onclick="javascript:$('#map_canvas').trigger('show', '2')">Museums</a></li>
+          <li><strong>Routes</strong></li>
+          <li><a onclick="javascript:$('#map_canvas').trigger('route', '0')">Airport to The Hotel</a></li>
+          <li><a onclick="javascript:$('#map_canvas').trigger('route', '1')">The Hotel to Center</a></li>
+          <li><strong>Controls</strong></li>
+          <li><a onclick="javascript:$('#map_canvas').trigger('hide_all')">Hide all markers</a></li>
+          <li><a onclick="javascript:$('#map_canvas').trigger('reset')">Reset Map</a></li>
+        </ul>
+      </nav>
+    </div>
 
-		<div id="map_canvas"></div>
-	</div>
+    <div id="map_canvas"></div>
+  </div>
 
-	<!-- FOOTER -->
-	<footer>
-		<!-- FOOTER CONTAINER-->
-		<div class="footer_wrapper">
-			<p>Built by <a href="https://github.com/vdw">vdw</a> aka <a href="http://gr.linkedin.com/in/dkrestos/" target="_blank">Dimitris Krestos</a><br />Code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a></p>
-		</div>
-		<!-- FOOTER CONTAINER ends -->
-	</footer>
+  <!-- FOOTER -->
+  <footer>
+    <!-- FOOTER CONTAINER-->
+    <div class="footer_wrapper">
+      <p>Built by <a href="https://github.com/vdw">vdw</a> aka <a href="http://gr.linkedin.com/in/dkrestos/" target="_blank">Dimitris Krestos</a><br />Code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a></p>
+    </div>
+    <!-- FOOTER CONTAINER ends -->
+  </footer>
 
-	<!-- JQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="javascripts/vendor/jquery-1.8.1.min.js"><\/script>')</script>
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="javascripts/vendor/jquery-1.8.1.min.js"><\/script>')</script>
 
-	<!-- JS -->
-	<script type="text/javascript" src="javascripts/vendor/jquery.mapit.min.js"></script>
-	<script src="javascripts/initializers.js"></script>
-	<!-- JS ends -->
+  <!-- JS -->
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOaSmNcBHf07FWaVlO4pXgyFYMjmCPAEg" ></script>
+  <script type="text/javascript" src="javascripts/vendor/jquery.mapit.min.js"></script>
+  <script src="javascripts/initializers.js"></script>
+  <!-- JS ends -->
 
 </body>
 </html>
